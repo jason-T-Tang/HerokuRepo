@@ -3,20 +3,11 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-var catalogRouter = require('./routes/catalog'); //Import routes for "catalog" area of site
-var compression = require('compression');
-var helmet = require('helmet');
 
 const app = express();
 
-app.use(compression()); //Compress all routes
 
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/catalog', catalogRouter);  // Add catalog routes to middleware chain.
-app.use(helmet());
 
 //Initializing Scanner and Watson
 var prompt = require('prompt-sync')();
@@ -101,17 +92,17 @@ MongoClient.connect('mongodb://localhost', function (err, client) {
   if (err) throw err;
 
   var db = client.db('mytestingdb');
-		//if(db.children=[]){
-			//db.createCollection("Tester",()=>{});
-		//}	
-		//db.collection("Tester").updateOne({"_id":ObjectId(id).str},{$set :{"Context":"response.context"}});
+		if(db.children=[]){
+			db.createCollection("Tester",()=>{});
+		}	
+		db.collection("Tester").updateOne({"_id":ObjectId(id).str},{$set :{"Context":"response.context"}});
 			
 			
 	var myquery = {"_id":ObjectId(id)};
   var newvalues = {$set :{"Context Variables":response.context}};
   db.collection("Tester").updateOne(myquery, newvalues, function(err, res) {
     if (err) throw err;
-    //console.log("1 document updated");
+    console.log("1 document updated");
     client.close();
   });
 			
