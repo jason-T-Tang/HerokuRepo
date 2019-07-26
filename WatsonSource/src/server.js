@@ -125,6 +125,8 @@ app.post('/new', (req, res) => {
 			
 			
 	*/
+	
+const client = new MongoClient(encodeURIComponent(uri), { useNewUrlParser: true });
 client.connect(err => {
 var db = client.db('mytestingdb');
 		if(db.children=[]){
