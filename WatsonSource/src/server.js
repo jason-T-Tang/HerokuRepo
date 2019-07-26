@@ -42,8 +42,28 @@ const server = app.listen(app.get('port'), () => {
   var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 let id=0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Connect to the db
-MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
+/*MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
   if (err) throw err;
 
   var db = client.db('mytestingdb');
@@ -55,6 +75,21 @@ MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv
 		});
 			client.close();
     });
+*/
+const uri = "mongodb+srv://JasonTTang:<password>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  var db = client.db('mytestingdb');
+		if(db.children=[]){
+			db.createCollection("Tester",()=>{});
+		}	
+		db.collection("Tester").insertOne({"Context Variables":"null"}, function(err,docsInserted){
+		 id=docsInserted.insertedId;
+		});
+  client.close();
+});
+
+
 
 app.post('/new', (req, res) => {
 
@@ -88,7 +123,7 @@ app.post('/new', (req, res) => {
 	  }
 	  //console.log(response.context);
 	  res.send(response);
-MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
+/*MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
   if (err) throw err;
 
   var db = client.db('mytestingdb');
@@ -107,7 +142,26 @@ MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv
   });
 			
 			
+	*/
+client.connect(err => {
+var db = client.db('mytestingdb');
+		if(db.children=[]){
+			db.createCollection("Tester",()=>{});
+		}	
+		db.collection("Tester").updateOne({"_id":ObjectId(id).str},{$set :{"Context":"response.context"}});
 			
+			
+	var myquery = {"_id":ObjectId(id)};
+  var newvalues = {$set :{"Context Variables":response.context}};
+  db.collection("Tester").updateOne(myquery, newvalues, function(err, res) {
+    if (err) throw err;
+    console.log("1 document updated");
+  client.close();
+});
+
+
+
+	
     });
 
   }
