@@ -44,24 +44,6 @@ var ObjectId = require('mongodb').ObjectID;
 let id=0;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Connect to the db
 /*MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
   if (err) throw err;
@@ -77,7 +59,7 @@ let id=0;
     });
 */
 const uri = "mongodb+srv://JasonTTang:<password>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const client = new MongoClient(encodeURIComponent(uri), { useNewUrlParser: true });
 client.connect(err => {
   var db = client.db('mytestingdb');
 		if(db.children=[]){
