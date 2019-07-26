@@ -43,7 +43,7 @@ const server = app.listen(app.get('port'), () => {
 var ObjectId = require('mongodb').ObjectID;
 let id=0;
 // Connect to the db
-MongoClient.connect('mongodb://localhost', function (err, client) {
+MongoClient.connect('mongodb+srv://unitedwaytest-opagv.mongodb.net/test', function (err, client) {
   if (err) throw err;
 
   var db = client.db('mytestingdb');
