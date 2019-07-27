@@ -59,7 +59,7 @@ let id=0;
     });
 */
 
-
+/*
 const uri = "mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(encodeURIComponent(uri), { useNewUrlParser: true });
 client.connect(err => {
@@ -72,7 +72,7 @@ client.connect(err => {
 		});
   client.close();
 });
-
+*/
 
 app.post('/new', (req, res) => {
 
@@ -128,7 +128,7 @@ app.post('/new', (req, res) => {
 	*/
 	
 	
-
+/*
 const client = new MongoClient(encodeURIComponent(uri), { useNewUrlParser: true });
 client.connect(err => {
 var db = client.db('mytestingdb');
@@ -152,7 +152,7 @@ var db = client.db('mytestingdb');
     });
 
 
-
+*/
   }
   
 	        
