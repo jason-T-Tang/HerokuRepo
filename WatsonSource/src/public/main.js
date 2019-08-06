@@ -24,6 +24,9 @@ form.addEventListener('submit', event => {
     .then(data => {
 		for(var i=0;i<data.output.generic.length;i++){
 		document.getElementById('responsearea').value +="\n"+input.value+"\n"+data.output.generic[i].text;
+		if(data.output.generic[i].text==="Resetting..."){
+			document.getElementById('responsearea').value="";
+		}
 	}		
 	//document.getElementById('responsearea').value += responseValue;
 	//document.getElementById('responsearea').value +=data.output.generic[0].text;
