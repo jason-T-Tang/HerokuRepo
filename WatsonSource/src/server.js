@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 var prompt = require('prompt-sync')();
 var AssistantV1 = require('watson-developer-cloud/assistant/v1');
 var service = new AssistantV1({
-  iam_apikey: 'baYeqgR1fdDkXIEvYtiBNQ9fsEho5GKafGCntXycGBPG',
+  iam_apikey: '',
   version: '2018-09-20'
 });
 
