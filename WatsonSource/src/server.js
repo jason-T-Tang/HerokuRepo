@@ -18,7 +18,7 @@ var service = new AssistantV1({
 });
 
 //Variables to reuse
-var workspace_id = '380f9f30-5b51-481b-98f8-088936a16972';
+var workspace_id = '';
 var setContext;
 var bool=false;
 var bool1=false;
@@ -45,7 +45,7 @@ let id=0;
 
 
 // Connect to the db
-/*MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
+/*MongoClient.connect('mongodb+srv://@mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
   if (err) throw err;
 
   var db = client.db('mytestingdb');
@@ -60,7 +60,7 @@ let id=0;
 */
 
 /*
-const uri = "mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://@?retryWrites=true&w=majority";
 const client = new MongoClient(encodeURIComponent(uri), { useNewUrlParser: true });
 client.connect(err => {
   var db = client.db('mytestingdb');
@@ -106,7 +106,7 @@ app.post('/new', (req, res) => {
 	  }
 	  //console.log(response.context);
 	  res.send(response);
-/*MongoClient.connect('mongodb+srv://JasonTTang:<Jason4school>@unitedwaytest-opagv.mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
+/*MongoClient.connect('mongodb+srv://@test-opagv.mongodb.net/test?retryWrites=true&w=majority', function (err, client) {
   if (err) throw err;
 
   var db = client.db('mytestingdb');
